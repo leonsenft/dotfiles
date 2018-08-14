@@ -1,3 +1,6 @@
+" Enable modern Vim features not compatible with Vi.
+set nocompatible
+
 call plug#begin()
 Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
@@ -8,41 +11,47 @@ Plug 'ervandew/supertab'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'natebosch/vim-lsc'
+Plug 'tpope/vim-sensible'
 call plug#end()
+
+" Plugins must be loaded before the following line.
+filetype plugin indent on
 
 " Show whether the buffer is modified.
 let g:buftabline_indicators=1
+" Show ordinal number in buffer label.
+let g:buftabline_numbers=2
+
 let g:lsc_auto_map = v:true
 let g:lsc_enable_apply_edit = v:true
 let g:lsc_server_commands = {
     \ 'dart': 'dart_language_server',
     \ 'html': 'dart_language_server' }
+
 let g:netrw_banner = 0
 let g:netrw_list_hide = '^\./$,^\.\./$'
+
 let g:SuperTabClosePreviewOnPopupClose = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+" Format files on write.
 augroup autoformat
+  autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType dart AutoFormatBuffer dartfmt
 augroup END
 
-set autoindent
-set backspace=indent,eol,start
-set completeopt-=preview
-set fillchars+=vert:\ " Force trailing whitespace
-set foldmethod=marker
+" Enable syntax highlighting
+syntax on
+
 set gdefault
 set hidden
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=2
 set matchpairs+=<:>
-set nocompatible
 set noswapfile
 set number
 set relativenumber
-set scrolloff=5
 set smartcase
 set splitbelow
 set splitright
@@ -56,9 +65,8 @@ hi BufTabLineActive cterm=bold ctermfg=Black ctermbg=LightGray
 hi BufTabLineHidden cterm=bold ctermfg=DarkGray ctermbg=LightGray
 
 " Improve common command mappings
-let mapleader=' '
+let mapleader=','
 nnoremap ; :
-nnoremap Q @q
 
 " Buffer navigation
 nmap <silent> <leader>n :bnext <cr>
@@ -76,10 +84,6 @@ nmap <leader>0 <Plug>BufTabLine.Go(10)
 
 " Clears highlighted search matches
 nnoremap <silent> <cr> :nohlsearch <bar> :echo <cr>
-
-" Centers cursor in window
-nnoremap n nzz
-nnoremap N Nzz
 
 " Toggles relative line numbers
 nnoremap <silent> <leader>l :setlocal relativenumber! <cr>
