@@ -1,6 +1,7 @@
 " Enable modern Vim features not compatible with Vi.
 set nocompatible
 
+" Load external plugins.
 call plug#begin()
 Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
@@ -12,10 +13,9 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'natebosch/vim-lsc'
 Plug 'tpope/vim-sensible'
+" Initialize plugin system. Automatically enables file type detection and
+" syntax highlighting.
 call plug#end()
-
-" Plugins must be loaded before the following line.
-filetype plugin indent on
 
 " Show whether the buffer is modified.
 let g:buftabline_indicators=1
@@ -40,9 +40,6 @@ augroup autoformat
   autocmd FileType dart AutoFormatBuffer dartfmt
 augroup END
 
-" Enable syntax highlighting
-syntax on
-
 set gdefault
 set hidden
 set hlsearch
@@ -57,20 +54,20 @@ set splitbelow
 set splitright
 set statusline=\ %F\ %=\ L:\ %-9(%l/%L%)\ C:\ %-4c
 
-" Hide end of buffer '~' characters
+" Hide trailing '~' characters.
 hi EndOfBuffer ctermfg=Black
 
-" Buffer highlights
-hi BufTabLineActive cterm=bold ctermfg=Black ctermbg=LightGray
-hi BufTabLineHidden cterm=bold ctermfg=DarkGray ctermbg=LightGray
-
-" Improve common command mappings
+" Improve common command mappings.
 let mapleader=','
 nnoremap ; :
 
-" Buffer navigation
+" ",n" opens the next buffer.
 nmap <silent> <leader>n :bnext <cr>
+
+" ",p" opens the previous buffer.
 nmap <silent> <leader>p :bprev <cr>
+
+" ",{number}" opens a buffer by ordinal position.
 nmap <leader>1 <Plug>BufTabLine.Go(1)
 nmap <leader>2 <Plug>BufTabLine.Go(2)
 nmap <leader>3 <Plug>BufTabLine.Go(3)
@@ -82,11 +79,11 @@ nmap <leader>8 <Plug>BufTabLine.Go(8)
 nmap <leader>9 <Plug>BufTabLine.Go(9)
 nmap <leader>0 <Plug>BufTabLine.Go(10)
 
-" Clears highlighted search matches
-nnoremap <silent> <cr> :nohlsearch <bar> :echo <cr>
+" ",/" clears search results.
+nnoremap <silent> <leader>/ :nohlsearch <bar> :echo <cr>
 
-" Toggles relative line numbers
+" ",l" toggles relative line numbers.
 nnoremap <silent> <leader>l :setlocal relativenumber! <cr>
 
-" Toggles spell checking
+" ",s" toggles spell checking.
 nnoremap <silent> <leader>s :setlocal spell! spelllang=en_us <cr>
