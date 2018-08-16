@@ -17,6 +17,9 @@ Plug 'tpope/vim-sensible'
 " syntax highlighting.
 call plug#end()
 
+" Explicitly set background for consistency in and out of tmux.
+set background=dark
+
 " Show whether the buffer is modified.
 let g:buftabline_indicators=1
 " Show ordinal number in buffer label.
