@@ -9,7 +9,6 @@ Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
-Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'natebosch/vim-lsc'
 Plug 'tpope/vim-sensible'
