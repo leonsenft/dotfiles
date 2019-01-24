@@ -1,13 +1,13 @@
 function prompt_pwd
   set -l path (pwd)
+  set -l git_path (git rev-parse --show-toplevel ^/dev/null)
 
-  if __fish_is_git_repository
-    set -l path_to_repo (dirname (git rev-parse --show-toplevel ^/dev/null))
-    set path (string replace "$path_to_repo/" "" $path)
+  if test $git_path
+    set -l parent_path (dirname $git_path)
+    set path (string replace "$parent_path/" "" $path)
   else
     set path (string replace -r "^$HOME" "~" $path)
   end
 
   echo $path
 end
-
