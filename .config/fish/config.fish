@@ -2,10 +2,10 @@
 test -z "$TMUX"; or exit
 
 if status --is-interactive
-  abbr --add ta 'tmux attach-session -d -t'
-  abbr --add tl 'tmux list-sessions'
-  abbr --add tn 'tmux new-session -s'
-  abbr --add vi 'vim'
+  abbr -a ta 'tmx2 attach-session -d -t'
+  abbr -a tl 'tmx2 list-sessions'
+  abbr -a tn 'tmx2 new-session -s'
+  abbr -a v 'vim'
 end
 
 set -x EDITOR $VISUAL
