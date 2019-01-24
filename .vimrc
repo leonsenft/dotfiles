@@ -63,6 +63,7 @@ hi EndOfBuffer ctermfg=Black
 " Improve common command mappings.
 let mapleader=','
 nnoremap ; :
+nnoremap Y y$
 
 " ",n" opens the next buffer.
 nmap <silent> <leader>n :bnext <cr>
