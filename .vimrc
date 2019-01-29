@@ -7,7 +7,6 @@ Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
-Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
@@ -42,6 +41,13 @@ augroup autoformat
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType dart AutoFormatBuffer dartfmt
 augroup END
+
+" Use 2 spaces for indentation by default.
+"
+" See http://vim.wikia.com/wiki/Indenting_source_code for explanation.
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 set gdefault
 set hidden
