@@ -2,9 +2,9 @@
 test -z "$TMUX"; or exit
 
 if status --is-interactive
-  abbr -a ta 'tmx2 attach-session -d -t'
-  abbr -a tl 'tmx2 list-sessions'
-  abbr -a tn 'tmx2 new-session -s'
+  abbr -a ta 'tmux attach-session -d -t'
+  abbr -a tl 'tmux list-sessions'
+  abbr -a tn 'tmux new-session -s'
   abbr -a v 'vim'
 end
 
