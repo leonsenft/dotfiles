@@ -40,6 +40,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Format files on write.
 augroup autoformat
+  " Set filetype for local repository BUILD.<name> files.
+  autocmd BufRead,BufNewFile BUILD.* set filetype=bzl
+
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType cpp AutoFormatBuffer clang-format
   autocmd FileType dart AutoFormatBuffer dartfmt
