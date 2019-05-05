@@ -41,6 +41,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Format files on write.
 augroup autoformat
   autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType cpp AutoFormatBuffer clang-format
   autocmd FileType dart AutoFormatBuffer dartfmt
 augroup END
 
