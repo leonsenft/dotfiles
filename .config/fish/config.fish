@@ -9,5 +9,5 @@ if status --is-interactive
 end
 
 set -x EDITOR $VISUAL
-set -x PATH ~/.pub-cache/bin $PATH
+set -x PATH ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
 set -x VISUAL vim

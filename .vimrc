@@ -11,6 +11,7 @@ Plug 'ervandew/supertab'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'natebosch/vim-lsc'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-sensible'
 " Initialize plugin system. Automatically enables file type detection and
 " syntax highlighting.
@@ -28,7 +29,8 @@ let g:lsc_auto_map = v:true
 let g:lsc_enable_apply_edit = v:true
 let g:lsc_server_commands = {
     \ 'dart': 'dart_language_server',
-    \ 'html': 'dart_language_server' }
+    \ 'html': 'dart_language_server',
+    \ 'rust': 'rls'}
 
 let g:netrw_banner = 0
 let g:netrw_list_hide = '^\./$,^\.\./$'
@@ -41,6 +43,8 @@ augroup autoformat
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType dart AutoFormatBuffer dartfmt
 augroup END
+
+let g:rustfmt_autosave = 1
 
 " Use 2 spaces for indentation by default.
 "
