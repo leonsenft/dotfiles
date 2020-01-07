@@ -71,6 +71,7 @@ set noswapfile
 set number
 set relativenumber
 set smartcase
+set spell spelllang=en_us
 set splitbelow
 set splitright
 set statusline=\ %F\ %=\ L:\ %-9(%l/%L%)\ C:\ %-4c
