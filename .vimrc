@@ -10,6 +10,7 @@ Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'ervandew/supertab'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
+Plug 'gruvbox-community/gruvbox'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'rust-lang/rust.vim'
@@ -18,8 +19,14 @@ Plug 'tpope/vim-sensible'
 " syntax highlighting.
 call plug#end()
 
+" Enable spelling in terminal Vim.
+let g:gruvbox_guisp_fallback="fg"
+
 " Explicitly set background for consistency in and out of tmux.
 set background=dark
+set termguicolors
+
+colorscheme gruvbox
 
 " Show whether the buffer is modified.
 let g:buftabline_indicators=1
