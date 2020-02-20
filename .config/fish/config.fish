@@ -1,6 +1,3 @@
-# Don't source this file again when creating a tmux session.
-test -z "$TMUX"; or exit
-
 if status --is-interactive
   abbr -a ta 'tmux attach-session -d -t'
   abbr -a tl 'tmux list-sessions'
@@ -9,5 +6,9 @@ if status --is-interactive
 end
 
 set -x EDITOR $VISUAL
-set -x PATH ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
 set -x VISUAL vim
+
+# Don't set PATH when creating a new tmux session.
+if not set -q TMUX
+  set -x PATH ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
+end
