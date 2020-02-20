@@ -5,8 +5,8 @@ if status --is-interactive
   abbr -a v 'vim'
 end
 
-set -x EDITOR $VISUAL
 set -x VISUAL vim
+set -x EDITOR $VISUAL
 
 # Don't set PATH when creating a new tmux session.
 if not set -q TMUX
