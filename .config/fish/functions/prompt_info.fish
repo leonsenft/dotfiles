@@ -20,10 +20,10 @@ function prompt_info
 end
 
 function _git_has_staged_changes
-  not git diff-index --quiet --cached HEAD -- ^/dev/null
+  not git diff-index --quiet --cached HEAD -- 2>/dev/null
 end
 
 function _git_has_unstaged_changes
-  not git diff-files --quiet ^/dev/null
+  not git diff-files --quiet 2>/dev/null
 end
 

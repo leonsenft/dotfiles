@@ -1,6 +1,6 @@
 function prompt_pwd
   set -l path (pwd)
-  set -l git_path (git rev-parse --show-toplevel ^/dev/null)
+  set -l git_path (git rev-parse --show-toplevel 2>/dev/null)
 
   if test $git_path
     set -l parent_path (dirname $git_path)
