@@ -7,8 +7,4 @@ end
 
 set -x VISUAL vim
 set -x EDITOR $VISUAL
-
-# Don't set PATH when creating a new tmux session.
-if not set -q TMUX
-  set -x PATH ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
-end
+set -x PATH ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
