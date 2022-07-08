@@ -7,4 +7,4 @@ end
 
 set -x VISUAL vim
 set -x EDITOR $VISUAL
-set -x PATH ~/bin ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin $PATH
+set -x PATH ~/bin ~/.pub-cache/bin ~/code/flutter/bin ~/.cargo/bin /opt/homebrew/bin $PATH
